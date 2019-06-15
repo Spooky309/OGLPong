@@ -1,10 +1,13 @@
 #include <glad/glad.h>
 #include <stdexcept>
 #include <GLFW/glfw3.h>
+#include "IO.h"
+#include "TextureManager.h"
 
 int main() {
+	TextureManager tManager;
+	SEIO::Init();
 	glfwInit();
-
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
@@ -15,11 +18,17 @@ int main() {
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress));
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glEnable(GL_DEPTH_TEST);
+
+	Texture* ballTex = tManager.GetTexture("ball.png");
+
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
 
 
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 		glfwSwapBuffers(window);
 	}
 
