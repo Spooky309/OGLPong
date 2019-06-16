@@ -8,6 +8,7 @@ public:
 	Sprite(Texture* initTexture);
 	void SetPosition(const glm::vec3& newPos);
 	void SetRotation(const glm::vec3& euler);
+	glm::vec3& GetPosition();
 	Texture* GetTexture();
 	glm::mat4& GetMMat();
 private:

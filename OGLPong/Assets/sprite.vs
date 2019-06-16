@@ -9,5 +9,5 @@ uniform mat4 ModelMat;
 
 void main() {
 	texc = uv;
-	gl_Position = ModelMat * vec4(pos, 1.0);
+	gl_Position = PV * ModelMat * vec4(pos, 1.0);
 }

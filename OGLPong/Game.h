@@ -2,7 +2,7 @@
 #define _H_GAME_
 #include "TextureManager.h"
 #include "ShaderManager.h"
-#include "Sprite.h"
+#include "Paddle.h"
 #include <GLFW/glfw3.h>
 
 class Game {
@@ -20,9 +20,14 @@ public:
 private:
 	ShaderManager shadMan;
 	TextureManager texMan;
-	Sprite* rendSprite;
+	Paddle* player1;
+	Paddle* player2;
 	GLFWwindow* window;
 	ShaderProgram* spriteShader;
+
+	double lastTime;
+	double dTime;
+
 	Game() = default;
 	~Game() = default;
 	Game(const Game&) = delete;
