@@ -18,14 +18,14 @@ bool Input::GetKeyUp(const unsigned int& key) {
 
 void Input::GLFWKeyCallback(GLFWwindow* wind, int key, int, int action, int) {
 	if (action == GLFW_PRESS) {
-		nkeys[key] = true;
+		keys[key] = true;
 	}
 	if (action == GLFW_RELEASE) {
-		nkeys[key] = false;
+		keys[key] = false;
 	}
 }
 
 void Input::Update() {
 	memcpy(lKeys, keys, 512 * sizeof(bool));
-	memcpy(keys, nkeys, 512 * sizeof(bool));
+	//memcpy(keys, nkeys, 512 * sizeof(bool));
 }
